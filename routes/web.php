@@ -3,6 +3,22 @@ use App\Http\Controllers\PortafolioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+
+
+use App\Http\Controllers\MediaController;
+
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::view('home', 'home')->name('home');
+    Route::match(['get', 'post'], '/upload', [MediaController::class, 'media'])->name('upload.media');
+});
+
+
+
+
+
+
 Route::get('/', [PortafolioController::class, 'datosPortafolio']);
 
 /*Route::get('/', function () {
