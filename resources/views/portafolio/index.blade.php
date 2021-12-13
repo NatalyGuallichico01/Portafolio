@@ -13,16 +13,28 @@
     </div>
     <br>
 
-    @forelse ($portafolios as $portafolio)
-    <h5 class="card-title">Nombre: {{$portafolio->nombre}}</h5>
-    <h5 class="card-title">Descripcion: {{$portafolio->descripcion}}</h5>
-    <h5 class="card-title">Categoria: {{$portafolio->categoria}}</h5>
-    <h5 class="card-title">Imagen: {{$portafolio->imagen}}</h5>
-    <h5 class="card-title">Video: {{$portafolio->url}}</h5>
-    <a href="{{route('show',$portafolio)}}" class="btn btn-primary btn-sm">Mas información</a>
-    <hr>
-    @empty
-    <p>No existen proyectos</p>
-    @endforelse    
+    <div class="container d-flex flex-row flex-wrap justify-content-center">
+        @forelse ($portafolios as $portafolio)
+        <div class="card" style="width: 18rem">
+            <img src="/storage/{{$portafolio->imagen}}" class="card-img-top" alt="..." width="180" height="180">
+            <div class="card-body">
+                <p class="card-title font-weight-bold">{{$portafolio->nombre}}</p>
+                <h5 class="card-title text-truncate">{{$portafolio->descripcion}}</h5>
+                <span class="badge bg-success">Categoría: {{$portafolio->categoria}}</span>
+                <br>
+                <br>
+                <a href="{{route('show', $portafolio)}}" class="btn btn-secondary btn-lg btn-block">Más información</a>
+            </div>
+        </div>
+        <hr>
+        @empty
+            <p>No Existen proyectos</p>
+            @endforelse   
+            @endsection
+    
+    </div>
+   
+ 
+ 
+    
 
-@endsection

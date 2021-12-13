@@ -3,10 +3,11 @@ use App\Http\Controllers\PortafolioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [PortafolioController::class, 'datosPortafolio']);
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 
 Auth::routes();
